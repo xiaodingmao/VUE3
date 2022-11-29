@@ -27,11 +27,11 @@ export default {
 button{
   background-color: #f65261;
   color:white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
-  padding:10px 20px;
-  border: none;
+  padding:10px 50px;
+  border-style: none;
+  border-radius: 5px;
 }
-
 </style>
