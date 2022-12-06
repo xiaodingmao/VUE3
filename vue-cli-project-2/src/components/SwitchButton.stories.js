@@ -11,7 +11,14 @@ export default {
   component: Button,
 };
 
-export const Primary = () => ({
+ const Template = (args) => ({
   components: { Button },
-  template: '<Button/>',
+  setup() {
+    return { ...args }
+  },
+  template: '<Button :nameTags="nameTags"/>',
 });
+export const Primary = Template.bind({});
+Primary.args = {
+ nameTags:['TITLE','GANGER']
+};

@@ -7,7 +7,7 @@
     </div>
     <div class="search_filter">
       <span>SREACH BY</span>
-      <search-sort></search-sort>
+      <search-sort :nameTags="tags"></search-sort>
     </div>
 
   </div>
@@ -17,9 +17,11 @@
 import SearchInput from "./SearchInput.vue"
 import SearchButton from "./SearchButton.vue"
 import SearchSort from "./SwitchButton.vue"
+
 export default {
   data() {
     return {
+      tags:['TITLE','GENGRE']
 
     }
   },

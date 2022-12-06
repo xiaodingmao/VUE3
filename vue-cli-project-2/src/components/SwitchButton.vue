@@ -1,21 +1,30 @@
 <template>
   <div class="switch_container">
-    <span :class="{ active: isActive }" @click="setActive">TITLE</span>
-    <span :class="{ active: !isActive }" @click="setActive">GENGRE</span>
+    <span 
+    :class="{ active: isActive===index }"
+     @click="setActive(index)"
+     v-for="(item,index) in nameTags" :key="index">
+  
+     {{item}}
+    </span>
   </div>
 </template>
 
 <script lang='ts'>
+import { defineComponent } from 'vue'
+
 export default {
+  props:{
+    nameTags: Array
+  },
   data() {
     return {
-      isActive:true
-
+      isActive:0
     }
   },
   methods: {
-    setActive(){
-     this.isActive= !this.isActive
+    setActive(index:number){
+     this.isActive= index
     }
 
   },
