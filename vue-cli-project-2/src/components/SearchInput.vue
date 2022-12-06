@@ -22,8 +22,8 @@ export default {
 
 <style scoped lang="scss">
 input{
-  padding:10px;
-  min-width: 400px;
+  padding:20px;
+  min-width: 600px;
   background-color: rgba(0,0,0,0.8);
   color: #fff;
   font-size: 14px;

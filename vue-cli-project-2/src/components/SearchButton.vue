@@ -1,5 +1,5 @@
 <template>
-  <button type="button"  @click="onClick" >SEARCH</button>
+  <button type="button" @click="onClick">SEARCH</button>
 
 </template>
 
@@ -12,7 +12,7 @@ export default {
     };
   },
   methods: {
-    onClick(){
+    onClick() {
       alert("search")
     }
 
@@ -24,13 +24,15 @@ export default {
 </script>
 
 <style scoped>
-button{
+button {
+  width: 180px;
+  height: 60px;
+  line-height: 60px;
   background-color: #f65261;
-  color:white;
+  color: white;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
-  padding:10px 50px;
   border-style: none;
   border-radius: 5px;
 }
