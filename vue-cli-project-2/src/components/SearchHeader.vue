@@ -39,7 +39,6 @@ export default {
 <style scoped lang="scss">
 .header_container {
   height: 300px;
-  width: 100%;
   padding: 60px 100px;
   font-size: 18px;
   color: #fff;
