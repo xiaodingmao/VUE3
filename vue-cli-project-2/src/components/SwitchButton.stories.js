@@ -11,14 +11,14 @@ export default {
   component: Button,
 };
 
- const Template = (args) => ({
+const Template = (args) => ({
   components: { Button },
   setup() {
-    return { ...args }
+    return { ...args };
   },
   template: '<Button :nameTags="nameTags"/>',
 });
 export const Primary = Template.bind({});
 Primary.args = {
- nameTags:['TITLE','GANGER']
+  nameTags: ['TITLE', 'GANGER'],
 };

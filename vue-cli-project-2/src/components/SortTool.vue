@@ -9,20 +9,21 @@
 </template>
 
 <script lang='ts'>
-import SearchSort from "./SwitchButton.vue"
+import SearchSort from './SwitchButton.vue';
+
 export default {
   data() {
     return {
-      tags: ['RELEASE DATE', 'RATING']
-    }
+      tags: ['RELEASE DATE', 'RATING'],
+    };
   },
   methods: {
 
   },
   components: {
-    SearchSort
-  }
-}
+    SearchSort,
+  },
+};
 </script>
 
 <style scoped lang="scss">

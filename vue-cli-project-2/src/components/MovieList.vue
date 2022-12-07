@@ -5,12 +5,13 @@
 </template>
 
 <script setup lang='ts'>
-import MovieCard from "./MovieCard.vue"
-import { FilmItem } from "../assets/filmType"
+import MovieCard from './MovieCard.vue';
+import { FilmItem } from '../assets/filmType';
+
 type FilmList = FilmItem[]
 const props = defineProps<{
   movieList: FilmList
-}>()
+}>();
 </script>
 
 <style scoped lang="scss">
@@ -18,7 +19,7 @@ const props = defineProps<{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding:20px;
+  padding:40px;
   background-color: #232323;
 }
 </style>

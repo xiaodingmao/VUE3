@@ -1,47 +1,27 @@
-const path = require('path');
-
 module.exports = {
-  extends: ['airbnb', 'prettier', 'prettier/react'],
-  plugins: ['@typescript-eslint'],
-  parser: '@typescript-eslint/parser',
-  env: { jest: true, browser: true },
-  parserOptions: {
-    project: 'tsconfig.eslint.json',
-    sourceType: 'module',
-  },
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: {
-          resolve: {
-           alias: {
-           '~': path.join(__dirname, 'src/app'),
-           },
-           extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
-         },
-        },
-      },
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true,
+        "vue/setup-compiler-macros": true
     },
-  },
-  rules: {
-    'react/jsx-props-no-spreading': 'off',
-    'react/prop-types': 0,
-    'import/prefer-default-export': 'off',
-    'import/no-default-export': 'error',
-    'import/no-unresolved': 0,
-    'no-underscore-dangle': ['error', { allow: ['__typename'] }],
-    '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
-    'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-        mjs: 'never',
-      },
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/essential",
+        "plugin:@typescript-eslint/recommended"
     ],
-  },
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "parser": "@typescript-eslint/parser",
+        "sourceType": "module",
+    },
+    "plugins": [
+        "vue",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-var-requires":0
+    }
 };

@@ -12,19 +12,21 @@
 </template>
 
 <script  setup lang='ts'>
-import { FilmItem } from "../assets/filmType"
+import { FilmItem } from '../assets/filmType';
+
 const props = defineProps<{
   movie: FilmItem
-}>()
+}>();
 </script>
 
 <style scoped lang="scss">
 .container {
-  width: 300px;
+  width: 280px;
+  margin-right: 30px;
   background-color: #232323;
 }
 
-.mv_image {
+.mv_image img{
   width: 100%;
   height: 400px;
 }

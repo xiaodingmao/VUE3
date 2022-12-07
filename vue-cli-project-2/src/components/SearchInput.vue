@@ -8,16 +8,16 @@
 export default {
   data() {
     return {
-      searchText:'',
-    }
+      searchText: '',
+    };
   },
   methods: {
 
   },
   components: {
 
-  }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">

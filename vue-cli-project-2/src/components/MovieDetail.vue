@@ -15,15 +15,16 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
-import { FilmItem } from "../assets/filmType"
+import { defineComponent } from 'vue';
+import type { PropType } from 'vue';
+import { FilmItem } from '../assets/filmType';
+
 export default defineComponent({
   props: {
     movie: {
       // 提供相对 `Object` 更确定的类型
       type: Object as PropType<FilmItem>,
-      required: true
+      required: true,
     },
   },
 
@@ -32,8 +33,8 @@ export default defineComponent({
   },
   components: {
 
-  }
-})
+  },
+});
 </script>
 
 <style scoped lang="scss">

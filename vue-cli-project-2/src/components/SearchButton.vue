@@ -13,8 +13,8 @@ export default {
   },
   methods: {
     onClick() {
-      alert("search")
-    }
+      alert('search');
+    },
 
   },
   components: {

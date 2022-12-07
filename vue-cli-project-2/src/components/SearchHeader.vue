@@ -14,26 +14,26 @@
 </template>
 
 <script lang='ts'>
-import SearchInput from "./SearchInput.vue"
-import SearchButton from "./SearchButton.vue"
-import SearchSort from "./SwitchButton.vue"
+import SearchInput from './SearchInput.vue';
+import SearchButton from './SearchButton.vue';
+import SearchSort from './SwitchButton.vue';
 
 export default {
   data() {
     return {
-      tags:['TITLE','GENGRE']
+      tags: ['TITLE', 'GENGRE'],
 
-    }
+    };
   },
   components: {
     SearchInput,
     SearchButton,
-    SearchSort
+    SearchSort,
   },
   methods: {
 
   },
-}
+};
 </script>
 
 <style scoped lang="scss">

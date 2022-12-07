@@ -14,8 +14,8 @@ export default {
 const Template = (args) => ({
   components: { HomeView },
   setup() {
-    return { ...args }
+    return { ...args };
   },
-  template: '<HomeView />'
+  template: '<HomeView />',
 });
 export const Primary = Template.bind({});
