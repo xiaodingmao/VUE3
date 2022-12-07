@@ -5,7 +5,6 @@
       <span>SORT BY</span>
       <search-sort :name-tags="tags"></search-sort>
     </div>
-
   </div>
 </template>
 

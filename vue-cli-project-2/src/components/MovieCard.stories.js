@@ -11,7 +11,23 @@ export default {
   component: MovieCard,
 };
 
-export const Primary = () => ({
+const Template = (args) => ({
   components: { MovieCard },
-  template: '<MovieCard/>',
+  setup() {
+    return { ...args }
+  },
+  template: '<MovieCard :movie="movie"/>',
 });
+export const Primary = Template.bind({});
+Primary.args = {
+ movie:{
+  id:"11",
+  title:"PULP FICTION",
+  rate:"4.3",
+  type:"ACTION",
+  description:"HFJHGJKGJTKHOPTKHPO",
+  duration:"150MIN",
+  coverUrl:"https://flxt.tmsimg.com/assets/p25765_p_v12_aj.jpg",
+  releaseYear:"2013",
+ }
+};
