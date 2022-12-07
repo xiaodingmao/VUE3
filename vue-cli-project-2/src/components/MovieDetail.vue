@@ -43,7 +43,7 @@ export default defineComponent({
   padding: 50px;
   background-color: #232323;
 
-  .mv_cover {
+  .mv_cover img{
     width: 300px;
     height: 400px;
     margin-right: 20px;
