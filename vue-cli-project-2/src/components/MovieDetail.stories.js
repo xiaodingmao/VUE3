@@ -10,8 +10,24 @@ export default {
   title: 'MovieDetail',
   component: MovieDetail,
 };
-
-export const Primary = () => ({
+ const Template = (args) => ({
   components: { MovieDetail },
-  template: '<MovieDetail/>',
+  setup() {
+    return { ...args }
+  },
+  template: '<MovieDetail :movie="movie"/>',
 });
+
+export const Primary = Template.bind({});
+Primary.args = {
+ movie:{
+  id:"11",
+  title:"PULP FICTION",
+  rate:"4.3",
+  type:"ACTION",
+  description:"HFJHGJKGJTKHOPTKHPO",
+  duration:"150MIN",
+  coverUrl:"https://flxt.tmsimg.com/assets/p25765_p_v12_aj.jpg",
+  releaseYear:"2013",
+ }
+};
