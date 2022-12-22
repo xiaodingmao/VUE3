@@ -33,7 +33,7 @@ export default defineComponent({
         type: 'ACTION',
         description: 'HFJHGJKGJTKHOPTKHPO',
         duration: '150MIN',
-        coverUrl: 'https://flxt.tmsimg.com/assets/p25765_p_v12_aj.jpg',
+        coverUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hbz-best-disney-movies-zootopia-everett-1587424586.jpg',
         releaseYear: '2013',
       },
       {
@@ -43,7 +43,7 @@ export default defineComponent({
         type: 'ACTION',
         description: 'HFJHGJKGJTKHOPTKHPO',
         duration: '150MIN',
-        coverUrl: 'https://flxt.tmsimg.com/assets/p25765_p_v12_aj.jpg',
+        coverUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF_tw88QEQEq4bw2mIw85iolPRapmw0ghgZQ&usqp=CAU',
         releaseYear: '2013',
       },
       {
@@ -53,7 +53,7 @@ export default defineComponent({
         type: 'ACTION',
         description: 'HFJHGJKGJTKHOPTKHPO',
         duration: '150MIN',
-        coverUrl: 'https://flxt.tmsimg.com/assets/p25765_p_v12_aj.jpg',
+        coverUrl: 'https://m.media-amazon.com/images/M/MV5BNzU4NWEwNDItMzMzYy00ZDYyLWIxZjMtMDlkYWVjNjQwYzBjXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg',
         releaseYear: '2013',
       }, {
         id: '11',
@@ -62,7 +62,7 @@ export default defineComponent({
         type: 'ACTION',
         description: 'HFJHGJKGJTKHOPTKHPO',
         duration: '150MIN',
-        coverUrl: 'https://flxt.tmsimg.com/assets/p25765_p_v12_aj.jpg',
+        coverUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnvt34mv-b3Pk84O0IZAaFboxa7W1bmB-Q1A&usqp=CAU',
         releaseYear: '2013',
       },
       {
@@ -72,7 +72,7 @@ export default defineComponent({
         type: 'ACTION',
         description: 'HFJHGJKGJTKHOPTKHPO',
         duration: '150MIN',
-        coverUrl: 'https://flxt.tmsimg.com/assets/p25765_p_v12_aj.jpg',
+        coverUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF41kHSkePZOI7oSnCISKmQ7aEuPUREBvzcg&usqp=CAU',
         releaseYear: '2013',
       }],
 
