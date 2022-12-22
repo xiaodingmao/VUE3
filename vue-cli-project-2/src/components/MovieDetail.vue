@@ -6,10 +6,10 @@
     <div class="mv_content">
       <div class="mv_title">Pulp Fiction<span class="mv_rating">4.3</span></div>
       <div class="mv_time">
-        <span class="mv_year">{{ movie.releaseYear  }}</span>
-        <span class="mv_duration">{{  movie.duration  }} min</span>
+        <span class="mv_year">{{ movie.releaseYear }}</span>
+        <span class="mv_duration">{{ addSuffix(movie.duration,'min') }} </span>
       </div>
-      <div class="mv_des">{{  movie.description  }}</div>
+      <div class="mv_des">{{ movie.description }}</div>
     </div>
   </div>
 </template>
@@ -29,6 +29,9 @@ export default defineComponent({
   },
 
   methods: {
+    addSuffix(value: string, suffix: string) {
+      return value+suffix
+    }
 
   },
   components: {
@@ -43,7 +46,7 @@ export default defineComponent({
   padding: 50px;
   background-color: #232323;
 
-  .mv_cover img{
+  .mv_cover img {
     width: 300px;
     height: 400px;
     margin-right: 20px;
