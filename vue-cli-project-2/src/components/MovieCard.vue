@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="mv_image"><img :src="movie.coverUrl" width="100%" height="100%" /></div>
+    <div class="mv_image"><img v-slazy="movie.coverUrl" width="100%" height="100%" /></div>
     <div class="mv_content">
       <div class="mv_flex">
         <span class="mv_title">{{ movie.title }}</span>
@@ -14,7 +14,7 @@
 <script  setup lang='ts'>
 import { FilmItem } from '../assets/filmType';
 
-const props = defineProps<{
+defineProps<{
   movie: FilmItem
 }>();
 </script>
