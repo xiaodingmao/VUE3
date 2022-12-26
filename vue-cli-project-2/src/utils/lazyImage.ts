@@ -1,5 +1,5 @@
 import { DirectiveBinding } from "vue"
-import { hasIntersectionObserver,scrollParent } from './helper/dom'
+import { hasIntersectionObserver } from './helper/dom'
 
 export default {
   mounted(el: HTMLElement, binding: DirectiveBinding) {
@@ -9,7 +9,7 @@ export default {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             const image = entry.target;
-            const parent = scrollParent(el);
+            //const parent = scrollParent(el);
             // el.src = binding.value;
             image.setAttribute('src', binding.value)
             imageObserver.unobserve(image);
