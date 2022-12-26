@@ -2,7 +2,8 @@
   <div class="home">
     <movie-header></movie-header>
     <sort-tool></sort-tool>
-    <movie-list :movieList="movieList"></movie-list>
+   <!--  <movie-list :movieList="movieList"></movie-list> -->
+    <movie-list></movie-list>
   </div>
 </template>
 
@@ -16,7 +17,7 @@ export default defineComponent({
   name: 'HomeView',
   data() {
     return {
-      movieList: [{
+     /*  movieList: [{
         id: '11',
         title: 'PULP FICTION',
         rate: '4.3',
@@ -74,7 +75,7 @@ export default defineComponent({
         duration: '150MIN',
         coverUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF41kHSkePZOI7oSnCISKmQ7aEuPUREBvzcg&usqp=CAU',
         releaseYear: '2013',
-      }],
+      }], */
 
     };
   },

@@ -1,25 +1,26 @@
 <template>
   <div class="list_container">
-    <movie-card v-for="item in movieList" :key="item.id" :movie="item"></movie-card>
+    <movie-card v-for="item in movieLists" :key="item.id" :movie="item"></movie-card>
   </div>
 </template>
 
 <script setup lang='ts'>
 import MovieCard from './MovieCard.vue';
-import { FilmItem } from '../assets/filmType';
+import { computed } from 'vue'
+import { useStore } from '../store'
 
-type FilmList = FilmItem[]
-const props = defineProps<{
-  movieList: FilmList
-}>();
+const { state } = useStore()
+
+
+const movieLists = computed(()=>state.movieList )
 </script>
 
 <style scoped lang="scss">
-.list_container{
+.list_container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding:40px;
+  padding: 40px;
   background-color: #232323;
 }
 </style>
