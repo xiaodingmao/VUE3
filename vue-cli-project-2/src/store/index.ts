@@ -1,4 +1,4 @@
-import { createStore,Store,useStore as baseUseStore  } from 'vuex';
+import { createStore, Store, useStore as baseUseStore } from 'vuex';
 import { InjectionKey } from 'vue'
 import { FilmItem } from '../assets/filmType';
 type FilmList = FilmItem[]
@@ -71,6 +71,21 @@ export const store = createStore<State>({
     }],
   },
   getters: {
+    getMovieDeatilById: (state) => (id: string) => {
+      return state.movieList.find(movie => movie.id === id)
+    },
+    searchMoviesByTitleSort: (state) => (title: string, type: 'rate' | 'releaseYear') => {
+      return state.movieList.filter(movie => movie.title.includes(title))
+        .sort((a, b) => {
+          if (a[type] < b[type]) {
+            return -1
+          }
+          if(a[type] > b[type]){
+            return 1
+          }
+          return 0
+        })
+    }
   },
   mutations: {
   },
@@ -80,6 +95,6 @@ export const store = createStore<State>({
   },
 });
 // define your own `useStore` composition function
-export function useStore () {
+export function useStore() {
   return baseUseStore(key)
 }

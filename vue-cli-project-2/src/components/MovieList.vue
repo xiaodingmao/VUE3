@@ -5,6 +5,7 @@
 </template>
 
 <script setup lang='ts'>
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MovieCard from './MovieCard.vue';
 import { computed } from 'vue'
 import { useStore } from '../store'
@@ -12,6 +13,7 @@ import { useStore } from '../store'
 const { state } = useStore()
 
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const movieLists = computed(()=>state.movieList )
 </script>
 
