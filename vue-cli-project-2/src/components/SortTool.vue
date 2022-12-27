@@ -1,6 +1,6 @@
 <template>
   <div class="sort_container">
-    <div class="search_counts">7 movies found</div>
+    <div class="search_counts">{{ getMoviesCounts }} movies found</div>
     <div class="sort_button">
       <span>SORT BY</span>
       <search-sort :name-tags="tags"></search-sort>
@@ -10,6 +10,7 @@
 
 <script lang='ts'>
 import SearchSort from './SwitchButton.vue';
+import { mapGetters } from 'vuex'
 
 export default {
   data() {
@@ -17,8 +18,11 @@ export default {
       tags: ['RELEASE DATE', 'RATING'],
     };
   },
-  methods: {
-
+  computed: {
+    // mix the getters into computed with object spread operator
+    ...mapGetters([
+      'getMoviesCounts',
+    ])
   },
   components: {
     SearchSort,

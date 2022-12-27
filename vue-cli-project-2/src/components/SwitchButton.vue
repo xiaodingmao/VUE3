@@ -1,7 +1,7 @@
 <template>
   <div class="switch_container">
-    <span :class="{ active: isActive === index }" @click="setActive(index)" v-for="(item,index) in nameTags" :key="index">
-
+    <span :class="{ active: isActive === index }" v-for="(item,index) in nameTags" :key="index"
+      @click="setActive(index, item)">
       {{ item }}
     </span>
   </div>
@@ -9,6 +9,7 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue';
+import { mapMutations } from 'vuex'
 
 export default defineComponent({
   props: {
@@ -20,8 +21,23 @@ export default defineComponent({
     };
   },
   methods: {
-    setActive(index: number) {
+    ...mapMutations(['setsortBy', 'setSearchBy']),
+    setActive(index: number, item: unknown) {
       this.isActive = index;
+      switch (item) {
+        case 'RELEASE DATE':
+          this.setsortBy('release_date');
+          break;
+        case 'RATING':
+          this.setsortBy('vote_count');
+          break;
+        case 'TITLE':
+          this.setSearchBy('title');
+          break;
+        case 'GENGRE':
+          this.setSearchBy('genres');
+          break;
+      }
     },
 
   },

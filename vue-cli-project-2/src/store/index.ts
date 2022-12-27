@@ -1,93 +1,65 @@
 import { createStore, Store, useStore as baseUseStore } from 'vuex';
 import { InjectionKey } from 'vue'
 import { FilmItem } from '../assets/filmType';
+import { movies } from '../utils/movies'
 type FilmList = FilmItem[]
 // define your typings for the store state
 export interface State {
-  movieList: FilmList
+  movieList: FilmList,
+  searchText: string,
+  searchBy: 'title' | 'genres',
+  sortBy: 'vote_count' | 'release_date',
 }
 export const key: InjectionKey<Store<State>> = Symbol()
 
 export const store = createStore<State>({
   state: {
-    movieList: [{
-      id: '11',
-      title: 'PULP FICTION',
-      rate: '4.3',
-      type: 'ACTION',
-      description: 'HFJHGJKGJTKHOPTKHPO',
-      duration: '150MIN',
-      coverUrl: 'https://flxt.tmsimg.com/assets/p25765_p_v12_aj.jpg',
-      releaseYear: '2013',
-    },
-    {
-      id: '11',
-      title: 'PULP FICTION',
-      rate: '4.3',
-      type: 'ACTION',
-      description: 'HFJHGJKGJTKHOPTKHPO',
-      duration: '150MIN',
-      coverUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hbz-best-disney-movies-zootopia-everett-1587424586.jpg',
-      releaseYear: '2013',
-    },
-    {
-      id: '11',
-      title: 'PULP FICTION',
-      rate: '4.3',
-      type: 'ACTION',
-      description: 'HFJHGJKGJTKHOPTKHPO',
-      duration: '150MIN',
-      coverUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF_tw88QEQEq4bw2mIw85iolPRapmw0ghgZQ&usqp=CAU',
-      releaseYear: '2013',
-    },
-    {
-      id: '11',
-      title: 'PULP FICTION',
-      rate: '4.3',
-      type: 'ACTION',
-      description: 'HFJHGJKGJTKHOPTKHPO',
-      duration: '150MIN',
-      coverUrl: 'https://m.media-amazon.com/images/M/MV5BNzU4NWEwNDItMzMzYy00ZDYyLWIxZjMtMDlkYWVjNjQwYzBjXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg',
-      releaseYear: '2013',
-    }, {
-      id: '11',
-      title: 'PULP FICTION',
-      rate: '4.3',
-      type: 'ACTION',
-      description: 'HFJHGJKGJTKHOPTKHPO',
-      duration: '150MIN',
-      coverUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnvt34mv-b3Pk84O0IZAaFboxa7W1bmB-Q1A&usqp=CAU',
-      releaseYear: '2013',
-    },
-    {
-      id: '11',
-      title: 'PULP FICTION',
-      rate: '4.3',
-      type: 'ACTION',
-      description: 'HFJHGJKGJTKHOPTKHPO',
-      duration: '150MIN',
-      coverUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF41kHSkePZOI7oSnCISKmQ7aEuPUREBvzcg&usqp=CAU',
-      releaseYear: '2013',
-    }],
+    movieList: movies,
+    searchText: '',
+    searchBy: 'title',
+    sortBy: 'release_date'
   },
   getters: {
-    getMovieDeatilById: (state) => (id: string) => {
+    getMovieDeatilById: (state) => (id: number) => {
       return state.movieList.find(movie => movie.id === id)
     },
-    searchMoviesByTitleSort: (state) => (title: string, type: 'rate' | 'releaseYear') => {
-      return state.movieList.filter(movie => movie.title.includes(title))
-        .sort((a, b) => {
-          if (a[type] < b[type]) {
+    filterMovie: (state) => () => {
+      if (!state.searchText) {
+        return state.movieList.sort((a, b) => {
+          if (a[state.sortBy] < b[state.sortBy]) {
             return -1
           }
-          if(a[type] > b[type]){
+          if (a[state.sortBy] > b[state.sortBy]) {
             return 1
           }
           return 0
         })
+      }
+      return state.movieList.filter(movie => movie[state.searchBy].includes(state.searchText))
+        .sort((a, b) => {
+          if (a[state.sortBy] < b[state.sortBy]) {
+            return -1
+          }
+          if (a[state.sortBy] > b[state.sortBy]) {
+            return 1
+          }
+          return 0
+        })
+    },
+    getMoviesCounts(state, getters) {
+      return getters.filterMovie().length
     }
   },
   mutations: {
+    setSearchText(state, payload) {
+      state.searchText = payload
+    },
+    setSearchBy(state, payload) {
+      state.searchBy = payload
+    },
+    setsortBy(state, payload) {
+      state.sortBy = payload
+    }
   },
   actions: {
   },

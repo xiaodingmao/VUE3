@@ -1,15 +1,15 @@
 <template>
   <div class="container">
     <div class="mv_cover">
-      <img :src="movie.coverUrl" width="100%" height="100%" />
+      <img :src="movie.poster_path" width="100%" height="100%" />
     </div>
     <div class="mv_content">
-      <div class="mv_title">Pulp Fiction<span class="mv_rating">4.3</span></div>
+      <div class="mv_title">{{ movie.title }}<span class="mv_rating">{{movie.vote_count}}</span></div>
       <div class="mv_time">
-        <span class="mv_year">{{ movie.releaseYear }}</span>
-        <span class="mv_duration">{{ addSuffix(movie.duration,'min') }} </span>
+        <span class="mv_year">{{ movie.release_date }}</span>
+        <span class="mv_duration">{{ addSuffix(movie.runtime,'min') }} </span>
       </div>
-      <div class="mv_des">{{ movie.description }}</div>
+      <div class="mv_des">{{ movie.overview }}</div>
     </div>
   </div>
 </template>
@@ -29,7 +29,7 @@ export default defineComponent({
   },
 
   methods: {
-    addSuffix(value: string, suffix: string) {
+    addSuffix(value: number, suffix: string) {
       return value+suffix
     }
 

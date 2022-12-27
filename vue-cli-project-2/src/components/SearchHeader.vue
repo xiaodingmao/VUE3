@@ -2,8 +2,8 @@
   <div class="header_container">
     <div class="search_title">FIND YOUR MOVIE</div>
     <div class="search_tool">
-      <search-input></search-input>
-      <search-button></search-button>
+      <search-input v-model="searchText"></search-input>
+      <search-button :searchText="searchText"></search-button>
     </div>
     <div class="search_filter">
       <span>SREACH BY</span>
@@ -22,6 +22,7 @@ export default {
   data() {
     return {
       tags: ['TITLE', 'GENGRE'],
+      searchText:''
 
     };
   },

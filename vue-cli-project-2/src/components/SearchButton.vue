@@ -1,26 +1,18 @@
 <template>
   <button type="button" @click="onClick">SEARCH</button>
-
 </template>
 
-<script lang='ts'>
-export default {
+<script setup lang='ts'>
+import { useStore } from '../store'
+const store = useStore()
+const props = defineProps({
+  searchText: String,
+})
 
-  data() {
-    return {
-
-    };
-  },
-  methods: {
-    onClick() {
-      alert('search');
-    },
-
-  },
-  components: {
-
-  },
-};
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function onClick() {
+  store.commit('setSearchText', props.searchText)
+}
 </script>
 
 <style scoped>
