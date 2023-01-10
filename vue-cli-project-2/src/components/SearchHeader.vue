@@ -1,5 +1,5 @@
 <template>
-  <div class="header_container">
+  <div class="header_container" data-test="search-header">
     <div class="search_title">FIND YOUR MOVIE</div>
     <div class="search_tool">
       <search-input v-model="searchText"></search-input>

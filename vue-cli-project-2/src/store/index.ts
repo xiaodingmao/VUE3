@@ -46,7 +46,7 @@ export const store = createStore<State>({
           return 0
         })
     },
-    getMoviesCounts(state, getters) {
+    getMoviesCounts: (state, getters) => () => {
       return getters.filterMovie().length
     }
   },

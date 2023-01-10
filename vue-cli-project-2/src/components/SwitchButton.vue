@@ -1,7 +1,7 @@
 <template>
-  <div class="switch_container">
+  <div class="switch_container" >
     <span :class="{ active: isActive === index }" v-for="(item,index) in nameTags" :key="index"
-      @click="setActive(index, item)">
+      @click="setActive(index, item)" data-test="sw-button">
       {{ item }}
     </span>
   </div>

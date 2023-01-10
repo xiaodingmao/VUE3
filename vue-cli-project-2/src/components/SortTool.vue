@@ -1,7 +1,7 @@
 <template>
   <div class="sort_container">
-    <div class="search_counts">{{ getMoviesCounts }} movies found</div>
-    <div class="sort_button">
+    <div class="search_counts" data-test="sort-count">{{ getMoviesCounts }} movies found</div>
+    <div class="sort_button" data-test="sort-button">
       <span>SORT BY</span>
       <search-sort :name-tags="tags"></search-sort>
     </div>

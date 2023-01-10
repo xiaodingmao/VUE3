@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <input type="text" :value="modelValue" @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
+    <input type="text" data-test="search-input" :value="modelValue" 
+       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
   </div>
 </template>
 
