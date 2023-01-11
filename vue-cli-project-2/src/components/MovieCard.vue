@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" data-test="movie-card">
     <div class="mv_image"><img v-slazy="movie.poster_path" width="100%" height="100%" /></div>
     <div class="mv_content">
       <div class="mv_flex">

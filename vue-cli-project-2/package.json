@@ -92,6 +92,8 @@
     "not ie 11"
   ],
   "jest": {
-    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
+    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
+    "collectCoverage": true
+
   }
 }

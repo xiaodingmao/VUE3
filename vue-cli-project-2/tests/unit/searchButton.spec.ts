@@ -1,27 +1,32 @@
-import { shallowMount } from '@vue/test-utils'
+import { DOMWrapper, VueWrapper, shallowMount } from '@vue/test-utils'
 import SearchButton from '@/components/SearchButton.vue'
-import { useStore } from '@/store/index'
-/* const store = {
-  commit: jest.fn()
-} */
-const store = useStore()
+import { store, key } from '@/store/index'
+
 
 describe('test seachButton.vue', () => {
-  it('render correctly', async () => {
-    const wrapper = shallowMount(SearchButton, {
+  let wrapper: VueWrapper<any>
+  let button: DOMWrapper<HTMLElement>
+
+  beforeEach(() => {
+     wrapper = shallowMount(SearchButton, {
       props: {
-        searchText: 'serach'
+        searchText: 'search'
       },
       global: {
-        /*  mocks: {
-           store
-         } */
-        plugins: [store]
+        plugins: [[store,key]]
       }
     })
-    const button = wrapper.find('button')
+   button = wrapper.find('button')
+  })
+  afterEach(() => {
+    wrapper.unmount()
+  })
+  it('render correctly', () => {
+    expect(button.text()).toContain('SEARCH')
+    
+  })
+  it('check click event',async ()=>{
     await button.trigger('click')
-    expect(store.commit).toBeCalled()
-
+    expect(store.state.searchText).toBe('search')
   })
 })

@@ -1,9 +1,9 @@
 <template>
   <div v-if="movieLists.length > 0" class="list_container">
-    <movie-card v-for="item in movieLists" :key="item.id" :movie="item"></movie-card>
+    <movie-card v-for="item in movieLists" :key="item.id" :movie="item" data-test="list"></movie-card>
   </div>
   <div v-else>
-    <null-movie></null-movie>
+    <null-movie data-test="list-null"></null-movie>
   </div>
 
 </template>
