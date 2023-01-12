@@ -1,10 +1,10 @@
 <template>
   <div class="container" data-test="movie-card">
-    <div class="mv_image"><img v-slazy="movie.poster_path" width="100%" height="100%" /></div>
+    <div class="mv_image"><img v-slazy="movie.posterurl" width="100%" height="100%" /></div>
     <div class="mv_content">
       <div class="mv_flex">
         <span class="mv_title">{{ movie.title }}</span>
-        <span class="mv_date">{{ movie.release_date }}</span>
+        <span class="mv_date">{{ movie.releaseDate }}</span>
       </div>
       <div class="mv_type">{{ movie.genres.join('&') }}</div>
     </div>

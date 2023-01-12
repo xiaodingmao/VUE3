@@ -1,14 +1,16 @@
-export interface FilmItem{
-  id:number;
-  title:string;
-  tagline:string;
-  vote_average:number;
-  vote_count:number;
-  release_date:string;
-  poster_path:string;
-  overview:string;
-  budget:number;
-  revenue:number;
-  genres:string[];
-  runtime:number;
+export interface FilmItem {
+  id: number;
+  title: string;
+  posterurl: string;
+  imdbRating: number;
+  duration: string;
+  averageRating: number;
+  storyline: string;
+  releaseDate: string;
+  contentRating: string;
+  poster: string;
+  genres: string[];
+  actors: string[];
+  ratings: number[];
+  year: string;
 }

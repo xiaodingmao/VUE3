@@ -1,23 +1,24 @@
 import { createStore, Store, useStore as baseUseStore } from 'vuex';
 import { InjectionKey } from 'vue'
 import { FilmItem } from '../assets/filmType';
-import { movies } from '../utils/movies'
+//import { movies } from '../utils/movies'
+import { getMovies } from '@/api';
 type FilmList = FilmItem[]
 // define your typings for the store state
 export interface State {
   movieList: FilmList,
   searchText: string,
   searchBy: 'title' | 'genres',
-  sortBy: 'vote_count' | 'release_date',
+  sortBy: 'averageRating' | 'releaseDate',
 }
 export const key: InjectionKey<Store<State>> = Symbol()
 
 export const store = createStore<State>({
   state: {
-    movieList: movies,
+    movieList: [],
     searchText: '',
     searchBy: 'title',
-    sortBy: 'release_date'
+    sortBy: 'releaseDate'
   },
   getters: {
     getMovieDeatilById: (state) => (id: number) => {
@@ -66,6 +67,9 @@ export const store = createStore<State>({
     }
   },
   actions: {
+    async getInitalMovieList({ commit }) {
+      commit('setMovieData', await getMovies())
+    }
   },
   modules: {
   },
