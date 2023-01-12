@@ -4,8 +4,8 @@ import SwitchButton from '@/components/SwitchButton.vue'
 
 describe('test SwitchButton', () => {
   let wrapper: VueWrapper<any>
-  let button: Omit<DOMWrapper<Element>, "exists">
-  const nameTags = ['a', 'b']
+  let button: Omit<DOMWrapper<HTMLElement>, "exists">
+  const nameTags = ['RELEASE DATE', 'RATING']
   beforeEach(() => {
     wrapper = shallowMount(SwitchButton, {
       props: { nameTags }
@@ -18,7 +18,7 @@ describe('test SwitchButton', () => {
   })
 
   it('render button', () => {
-    expect(button.text()).toMatch(/a/)
+    expect(button.text()).toMatch(/RATING/)
   })
   it('active button', async () => {
     await button.trigger('click')

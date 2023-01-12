@@ -24,7 +24,7 @@ export const store = createStore<State>({
       return state.movieList.find(movie => movie.id === id)
     },
     filterMovie: (state) => () => {
-      if (!state.searchText) {
+      if (!state.searchText && state.movieList.length > 0) {
         return state.movieList.sort((a, b) => {
           if (a[state.sortBy] < b[state.sortBy]) {
             return -1
@@ -35,16 +35,17 @@ export const store = createStore<State>({
           return 0
         })
       }
-      return state.movieList.filter(movie => movie[state.searchBy].includes(state.searchText))
-        .sort((a, b) => {
-          if (a[state.sortBy] < b[state.sortBy]) {
-            return -1
-          }
-          if (a[state.sortBy] > b[state.sortBy]) {
-            return 1
-          }
-          return 0
-        })
+      const filterList = state.movieList.filter(movie => movie[state.searchBy].includes(state.searchText))
+      if (filterList.length <= 0) return filterList
+      return filterList.sort((a, b) => {
+        if (a[state.sortBy] < b[state.sortBy]) {
+          return -1
+        }
+        if (a[state.sortBy] > b[state.sortBy]) {
+          return 1
+        }
+        return 0
+      })
     },
     getMoviesCounts: (state, getters) => () => {
       return getters.filterMovie().length
@@ -59,6 +60,9 @@ export const store = createStore<State>({
     },
     setsortBy(state, payload) {
       state.sortBy = payload
+    },
+    setMovieData(state, payload) {
+      state.movieList = payload
     }
   },
   actions: {
