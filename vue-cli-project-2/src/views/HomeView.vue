@@ -4,12 +4,7 @@
     <movie-header></movie-header>
     <sort-tool></sort-tool>
     <!--  <movie-list :movieList="movieList"></movie-list> -->
-    <suspense>
-      <movie-list></movie-list>
-      <template #fallback>
-        Loading...
-      </template>
-    </suspense>
+    <movie-list></movie-list>
   </div>
 </template>
 
