@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils'
 import MovieList from '@/components/MovieList.vue'
 import { key } from '@/store/index'
 import { createStore } from 'vuex'
-
+import router from '@/router'
 
 describe('test movieList.vue', () => {
   it('render correctly when the list is null', () => {
@@ -13,7 +13,7 @@ describe('test movieList.vue', () => {
     })
     const wrapper = shallowMount(MovieList, {
       global: {
-        plugins: [[store, key]]
+        plugins: [[store, key],router]
       }
     })
     const nullDiv = wrapper.find('[data-test="list-null"]')

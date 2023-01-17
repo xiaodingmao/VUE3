@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import MovieCard from '@/components/MovieCard.vue'
+import router from '@/router'
 
 describe('test movieCard.vue', () =>{
   it('render correctly with props',()=>{
@@ -23,6 +24,9 @@ describe('test movieCard.vue', () =>{
           ],
           "runtime": 50
         }
+      },
+      global: {
+        plugins: [router]
       }
     })
     const movieCard=wrapper.get('[data-test="movie-card"]')
