@@ -1,42 +1,47 @@
 <template>
   <div class="container">
     <div class="mv_cover">
-      <img :src="movie.posterurl" width="100%" height="100%" />
+      <img :src="movieDetail.posterurl" width="100%" height="100%" />
     </div>
     <div class="mv_content">
-      <div class="mv_title">{{ movie.title }}<span class="mv_rating">{{movie.averageRating}}</span></div>
+      <div class="mv_title">{{ movieDetail.title }}<span class="mv_rating">{{ movieDetail.averageRating }}</span></div>
       <div class="mv_time">
-        <span class="mv_year">{{ movie.releaseDate }}</span>
-        <span class="mv_duration">{{ addSuffix(movie.duration,'min') }} </span>
+        <span class="mv_year">{{ movieDetail.releaseDate }}</span>
+        <span class="mv_duration">{{ addSuffix(movieDetail.duration, 'min') }} </span>
       </div>
-      <div class="mv_des">{{ movie.storyline }}</div>
+      <div class="mv_des">{{ movieDetail.storyline }}</div>
     </div>
   </div>
 </template>
 
 <script lang='ts'>
 import { defineComponent } from 'vue';
-import type { PropType } from 'vue';
-import { FilmItem } from '../assets/filmType';
+//import type { PropType } from 'vue';
+//import { FilmItem } from '../assets/filmType';
+//import { mapGetters } from 'vuex'
+import { store } from '@/store';
 
 export default defineComponent({
-  props: {
+  /* props: {
     movie: {
       // 提供相对 `Object` 更确定的类型
       type: Object as PropType<FilmItem>,
       required: true,
     },
+  }, */
+  computed: {
+    movieDetail() {
+      //console.log(this.$route.query.id,store.getters.getMovieDeatilById(this.$route.query.id))
+      return store.getters.getMovieDeatilById(this.$route.query.id)
+    },
   },
-
   methods: {
     addSuffix(value: string, suffix: string) {
-      return value+suffix
+      return value + suffix
     }
 
   },
-  components: {
 
-  },
 });
 </script>
 

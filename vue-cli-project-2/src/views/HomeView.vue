@@ -1,9 +1,7 @@
 <template>
   <div class="home" data-test="home">
-
     <movie-header></movie-header>
     <sort-tool></sort-tool>
-    <!--  <movie-list :movieList="movieList"></movie-list> -->
     <movie-list></movie-list>
   </div>
 </template>

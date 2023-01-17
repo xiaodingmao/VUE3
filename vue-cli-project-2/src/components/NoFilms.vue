@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" data-test="list-null">
     No films found
   </div>
 </template>

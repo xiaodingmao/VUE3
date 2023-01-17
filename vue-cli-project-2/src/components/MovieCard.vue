@@ -1,5 +1,5 @@
 <template>
-  <div class="container" data-test="movie-card">
+  <div class="container" data-test="movie-card" @click="goToDetail(movie.id)">
     <div class="mv_image"><img v-slazy="movie.posterurl" width="100%" height="100%" /></div>
     <div class="mv_content">
       <div class="mv_flex">
@@ -12,11 +12,17 @@
 </template>
 
 <script  setup lang='ts'>
-import { FilmItem } from '../assets/filmType';
-
+import { useRouter } from 'vue-router'
+import { FilmItem } from '../assets/filmType'
+const router=useRouter()
 defineProps<{
   movie: FilmItem
 }>();
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function goToDetail(id:number){
+  // console.log('id22',id)
+  router.push({path:'/movieDetail',query:{id}})
+}
 </script>
 
 <style scoped lang="scss">

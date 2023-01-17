@@ -22,7 +22,7 @@ export const store = createStore<State>({
   },
   getters: {
     getMovieDeatilById: (state) => (id: number) => {
-      return state.movieList.find(movie => movie.id === id)
+      return state.movieList.find(movie => movie.id == id)
     },
     filterMovie: (state) => () => {
       if (!state.searchText && state.movieList.length > 0) {
